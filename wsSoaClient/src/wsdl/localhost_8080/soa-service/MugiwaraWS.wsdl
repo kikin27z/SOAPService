@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://mugiwara.w/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="MugiwaraWS" targetNamespace="http://mugiwara.w/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://mugiwara.w/" elementFormDefault="unqualified" targetNamespace="http://mugiwara.w/" version="1.0">
+
+  <xs:element name="addMugiwara" type="tns:addMugiwara"/>
+
+  <xs:element name="addMugiwaraResponse" type="tns:addMugiwaraResponse"/>
+
+  <xs:element name="getMugiwaras" type="tns:getMugiwaras"/>
+
+  <xs:element name="getMugiwarasResponse" type="tns:getMugiwarasResponse"/>
+
+  <xs:complexType name="getMugiwaras">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getMugiwarasResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:mugiwara"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mugiwara">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="rol" type="xs:string"/>
+      <xs:element minOccurs="0" name="nombre" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addMugiwara">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="mugiwara" type="tns:mugiwara"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addMugiwaraResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addMugiwaraResponse">
+    <wsdl:part element="tns:addMugiwaraResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMugiwaras">
+    <wsdl:part element="tns:getMugiwaras" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMugiwarasResponse">
+    <wsdl:part element="tns:getMugiwarasResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addMugiwara">
+    <wsdl:part element="tns:addMugiwara" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MugiwaraWS">
+    <wsdl:operation name="getMugiwaras">
+      <wsdl:input message="tns:getMugiwaras" name="getMugiwaras">
+    </wsdl:input>
+      <wsdl:output message="tns:getMugiwarasResponse" name="getMugiwarasResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMugiwara">
+      <wsdl:input message="tns:addMugiwara" name="addMugiwara">
+    </wsdl:input>
+      <wsdl:output message="tns:addMugiwaraResponse" name="addMugiwaraResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MugiwaraWSSoapBinding" type="tns:MugiwaraWS">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getMugiwaras">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMugiwaras">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMugiwarasResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMugiwara">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addMugiwara">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addMugiwaraResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MugiwaraWS">
+    <wsdl:port binding="tns:MugiwaraWSSoapBinding" name="MugiwaraWSPort">
+      <soap:address location="http://localhost:8080/soa-service/MugiwaraWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

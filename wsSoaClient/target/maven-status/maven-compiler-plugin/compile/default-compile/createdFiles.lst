@@ -1,0 +1,10 @@
+ws\client\GetMugiwarasResponse.class
+ws\client\ObjectFactory.class
+ws\client\AddMugiwara.class
+ws\client\AddMugiwaraResponse.class
+ws\client\MugiwaraWS.class
+ws\client\GetMugiwaras.class
+ws\client\package-info.class
+ws\client\Mugiwara.class
+ws\client\MugiwaraWS_Service.class
+com\mycompany\wssoaclient\WsSoaClient.class
